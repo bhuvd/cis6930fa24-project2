@@ -55,9 +55,7 @@ def compute_metrics(y_train, y_pred_train, y_val, y_pred_val):
         "train_precision": precision_score(y_train, y_pred_train, average="weighted"),
         "val_precision": precision_score(y_val, y_pred_val, average="weighted"),
         "train_recall": recall_score(y_train, y_pred_train, average="weighted"),
-        "val_recall": recall_score(y_val, y_pred_val, average="weighted"),
-        "train_f1": f1_score(y_train, y_pred_train, average="weighted"),
-        "val_f1": f1_score(y_val, y_pred_val, average="weighted"),
+        "val_recall": recall_score(y_val, y_pred_val, average="weighted")
     }
     return metrics
 
@@ -72,7 +70,6 @@ def generate_submission(test_data, model, vectorizer, scaler, train_cleaned_text
     test_predictions = model.predict(X_test_combined)
     test_data['predicted_names'] = test_predictions
     test_data[['id', 'predicted_names']].to_csv('submission.tsv', sep='\t', index=False)
-    print("Predictions saved to submission.tsv")
 
 
 def main():

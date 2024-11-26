@@ -92,5 +92,3 @@ def test_compute_metrics(sample_data):
     assert metrics["val_precision"] == 1.0
     assert metrics["train_recall"] == 1.0
     assert metrics["val_recall"] == 1.0
-    assert metrics["train_f1"] == 1.0
-    assert metrics["val_f1"] == 1.0
